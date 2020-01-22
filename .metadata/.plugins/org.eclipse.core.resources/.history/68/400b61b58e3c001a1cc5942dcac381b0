@@ -1,0 +1,5 @@
+package com.softtek.java.sboot.repository;
+
+public class UserRepository {
+
+}

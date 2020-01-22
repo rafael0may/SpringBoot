@@ -1,0 +1,5 @@
+package com.softtek.java.sboot.entity;
+
+public class User {
+
+}

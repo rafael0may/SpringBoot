@@ -1,0 +1,10 @@
+package com.softtek.java.sboot.controller;
+
+import org.springframework.stereotype.Controller;
+
+@Controller
+public class WebControllerApp {
+	
+	
+	
+}

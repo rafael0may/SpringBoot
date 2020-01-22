@@ -1,0 +1,5 @@
+package com.softtek.java.sboot.rest;
+
+public class UserRest {
+
+}

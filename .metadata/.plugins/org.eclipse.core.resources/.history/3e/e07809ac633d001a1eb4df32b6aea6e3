@@ -1,0 +1,70 @@
+package com.softtek.java.sboot;
+
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+import com.softtek.java.sboot.entity.User;
+import com.softtek.java.sboot.service.UserService;
+
+ 
+
+@SpringBootApplication
+public class DemoApplication implements CommandLineRunner {
+    
+    @Autowired
+    UserService userService;
+
+ 
+
+    public static void main(String[] args) {
+        SpringApplication.run(DemoApplication.class, args);
+    }
+
+ 
+
+    @Override
+    public void run(String... args) throws Exception {
+        
+        User harry = new User();
+        harry.setFirstName("Harry");
+        harry.setLastName("Potter");
+        harry.setUserName("harry.potter");
+        
+        User hermionie = new User();
+        hermionie.setFirstName("Hermionie");
+        hermionie.setLastName("Granger");
+        hermionie.setUserName("hermionie.granger");
+        
+        User ron = new User();
+        ron.setFirstName("Ron");
+        ron.setLastName("Weasley");
+        ron.setUserName("ron.weasley");
+        
+        Optional<User> user = userService.findByUserName("harry.potter");
+        if(!user.isPresent()) {
+        	userService.createUser(harry);
+        }
+        
+        user = userService.findByUserName("hermionie.granger");
+        if(!user.isPresent()) {
+        	userService.createUser(hermionie);
+        }
+        
+        user = userService.findByUserName("ron.weasley");
+        if(!user.isPresent()) {
+        	userService.createUser(ron);
+        }
+        
+        
+        
+        
+        
+    }
+
+ 
+
+}
